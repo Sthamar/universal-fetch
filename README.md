@@ -22,11 +22,11 @@ npm install universal-fetch
 
 # Using yarn
 yarn add universal-fetch
+```
 
-
-# react usage
+```ts
 import React from "react";
-import { useFetch } from "universal-fetch";
+import { useFetch } from "universal-fetch/react";
 
 interface Post {
   id: number;
@@ -56,21 +56,28 @@ export default function App() {
     </div>
   );
 }
+```
 
-
-# svelte usage
-
+```ts
 <script lang="ts">
-  import { svelteFetch } from "universal-fetch";
+  import { createFetchStore } from "universal-fetch";
 
-  let data;
+  interface Post {
+    id: number;
+    title: string;
+    body: string;
+  }
+
+  let data: Post[] = [];
   let loading = true;
-  let error = null;
+  let error: Error | null = null;
 
-  svelteFetch("https://jsonplaceholder.typicode.com/posts")
-    .then(res => data = res)
-    .catch(err => error = err)
-    .finally(() => loading = false);
+  const fetchStore = createFetchStore<Post[]>("https://jsonplaceholder.typicode.com/posts");
+  fetchStore.subscribe(state => {
+    data = state.data ?? [];
+    loading = state.loading;
+    error = state.error;
+  });
 </script>
 
 {#if loading}
@@ -87,14 +94,20 @@ export default function App() {
     {/each}
   </ul>
 {/if}
-
 ```
+
+# API
+React: useFetch<T>(url: string, options?: FetchOptions)
+- url – API endpoint
+- options – Fetch options (method, headers, body, etc.)
+- Returns: { data, loading, error }
+
+Svelte: createFetchStore<T>(url: string, options?: FetchOptions)
+-Returns a Svelte store: { subscribe }
+-Handles loading, error, and data state reactively
 
 # Contributing
 Contributions are welcome! Please fork the repo, create a branch, and open a pull request.
 
 # License
 MIT © Amar Shrestha
-
-
-

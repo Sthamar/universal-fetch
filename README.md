@@ -1,20 +1,22 @@
-Universal Fetch
+# Universal Fetch
 
-universal-fetch is a lightweight, universal HTTP fetching library for React and Svelte projects. It provides a simple useFetch hook for React and a helper for Svelte, making API calls easy, type-safe, and reactive.
+`universal-fetch` is a lightweight, universal HTTP fetching library for **React** and **Svelte** projects. It provides a simple `useFetch` hook for React and a helper for Svelte, making API calls easy, type-safe, and reactive.
 
-Features
+---
 
-Works seamlessly with React (>=18) and Svelte (>=4)
+## Features
 
-TypeScript support with full type definitions
+- Works seamlessly with **React (>=18)** and **Svelte (>=4)**
+- TypeScript support with full type definitions
+- Minimal bundle size
+- Simple and consistent API for fetching data
+- Handles loading and error states
 
-Minimal bundle size
+---
 
-Simple and consistent API for fetching data
+## Installation
 
-Handles loading and error states
-
-Installation
+```bash
 # Using npm
 npm install universal-fetch
 
@@ -22,10 +24,7 @@ npm install universal-fetch
 yarn add universal-fetch
 
 
-⚠️ Peer dependencies: react, react-dom, svelte must be installed in your project.
-
-Usage
-React
+# react usage
 import React from "react";
 import { useFetch } from "universal-fetch";
 
@@ -58,7 +57,9 @@ export default function App() {
   );
 }
 
-Svelte
+
+# svelte usage
+
 <script lang="ts">
   import { svelteFetch } from "universal-fetch";
 
@@ -87,29 +88,12 @@ Svelte
   </ul>
 {/if}
 
-API
-React: useFetch
-const { data, loading, error } = useFetch<T>(url: string, options?: FetchOptions);
 
-
-url – API endpoint
-
-options – Fetch options (method, headers, body, etc.)
-
-Returns: { data, loading, error }
-
-Svelte: svelteFetch
-const data = await svelteFetch<T>(url: string, options?: FetchOptions);
-
-
-Works with Promises
-
-Handles data fetching in Svelte components
-
-Contributing
-
+# Contributing
 Contributions are welcome! Please fork the repo, create a branch, and open a pull request.
 
-License
-
+# License
 MIT © Amar Shrestha
+
+
+

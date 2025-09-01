@@ -88,6 +88,7 @@ export default function App() {
   </ul>
 {/if}
 
+```
 
 # Contributing
 Contributions are welcome! Please fork the repo, create a branch, and open a pull request.

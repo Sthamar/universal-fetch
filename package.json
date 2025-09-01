@@ -28,5 +28,21 @@
   },
   "dependencies": {
     "tslib": "^2.8.1"
+  },
+  
+  "exports": {
+    ".": {
+      "import": "./dist/index.esm.js",
+      "require": "./dist/index.cjs.js"
+    },
+    "./react": {
+      "import": "./dist/react/index.esm.js",
+      "require": "./dist/react/index.cjs.js"
+    },
+    "./svelte": {
+      "import": "./dist/svelte/index.esm.js",
+      "require": "./dist/svelte/index.cjs.js"
+    }
   }
+
 }

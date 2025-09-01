@@ -1,6 +1,6 @@
 // svelteFetch.ts
 import { writable } from "svelte/store";
-import { fetchClient, FetchOptions } from "./fetchClient";
+import { fetchClient, FetchOptions } from "../fetchClient";
 
 export function createFetchStore<T>(url: string, options?: FetchOptions) {
   const { subscribe, set } = writable<{ data: T | null; loading: boolean; error: Error | null }>({

@@ -1,3 +1,1 @@
-export * from "./fetchClient";
-export * from "./useFetch";
-export * from "./svelteFetch";
+export { createFetchStore } from "./svelte/svelteFetch";

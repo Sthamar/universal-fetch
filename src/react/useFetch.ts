@@ -1,6 +1,6 @@
 // useFetch.ts
 import { useEffect, useState } from "react";
-import { fetchClient, FetchOptions } from "./fetchClient";
+import { fetchClient, FetchOptions } from "../fetchClient";
 
 export function useFetch<T>(url: string, options?: FetchOptions) {
   const [data, setData] = useState<T | null>(null);

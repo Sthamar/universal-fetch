@@ -6,11 +6,11 @@
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "npx tsc && npx rollup -c",
-    "dev": "vite",
-    "test": "vitest",
-    "clean": "rm -rf dist"
-  },
+  "build": "rm -rf dist && rollup -c",
+  "dev": "vite",
+  "test": "vitest",
+  "clean": "rm -rf dist"
+},
   "peerDependencies": {
     "svelte": ">=4"
   },

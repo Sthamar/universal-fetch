@@ -4,9 +4,9 @@ export interface FetchOptions extends RequestInit {
 
 export async function fetchClient<T>(
     url: string,
-    opttions: FetchOptions = {}
+    options: FetchOptions = {}
 ): Promise<T> {
-    const { retries = 0, ...fetchOptions } = opttions;
+    const { retries = 0, ...fetchOptions } = options;
     for (let attempt = 0; attempt <= retries; attempt++) {
         try{
             const res = await fetch(url, fetchOptions);
